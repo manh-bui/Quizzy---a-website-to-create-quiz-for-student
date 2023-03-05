@@ -1,0 +1,24 @@
+<% layout('./layouts/layout.eta') %>
+<style>
+    form {
+        display: inline-block;
+    }
+</style>
+
+<h1> Quiz </h1>
+
+<h2> Start the quiz by choosing one of the topic below </h2>
+
+<% if (it.topics && it.topics.length >0) { %>
+    
+    <ul>
+    <% it.topics.forEach( (topic) => { %>
+        
+            <h4><a href="/quiz/<%= topic.id %>" ><%= topic.name %></a></h4>
+        
+    <% }); %>
+    </ul>
+
+<% } else { %>
+    <p>No topic available right now! </p>
+<% } %>

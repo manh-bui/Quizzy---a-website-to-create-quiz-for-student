@@ -1,0 +1,9 @@
+<% layout('./layouts/layout.eta') %>
+
+
+<h1>Topic: <%= it.topic[0].name %> </h1>
+
+<h2> There is no question yet in this topic </h2>
+
+<h4> You can create question for this topic at <a href="/topics"> here </a> </h4>
+<h4><a href="/quiz"> Choose another topic </a></h4>

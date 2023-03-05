@@ -1,0 +1,20 @@
+<% layout("./layouts/layout.eta") %>
+
+<h1>Second Project</h1>
+
+<h4>If you are doing peer-preview for my project and please read the "README.md" file in the folder.</h4>
+
+<p>This is an application where you can add question, answer options and facing it in the quiz challenge. </p>
+<p>Anyone using the application can create questions for a specific topic, add answer options, and facing them in the 
+<a href="/quiz"> Quiz</a> section</p>
+
+<p>If you haven't used the application before, you can start by <a href="/auth/register">registering</a>. 
+If you have been here before, just <a href="/auth/login">log in</a>!</p>
+
+
+
+
+<h2> Page Statistics! </h2>
+<p> Number of Topics: <%= it.NumberOfTopic %></p>
+<p> Number of Questions: <%= it.NumberOfQuestion %></p>
+<p> Number of Question Answer: <%= it.NumberOfAnswer %></p>

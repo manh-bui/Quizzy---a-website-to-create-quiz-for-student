@@ -1,0 +1,55 @@
+<% layout('./layouts/layout.eta') %>
+<style>
+    form {
+        display: inline-block;
+    }
+</style>
+
+<h1> Topics </h1>
+
+<h2> Available Topics </h2>
+
+<% if (it.topics && it.topics.length >0) { %>
+    
+    <ul>
+    <% it.topics.forEach( (topic) => { %>
+        <h4>
+            <a title="topicName" href="/topics/<%= topic.id %>" ><%= topic.name %></a>
+            
+            <% if (it.admin){ %>
+                <form method="POST" action="/topics/<%= topic.id %>/delete" >
+                    <input type="submit" value="Delete" />
+                </form>
+            <% } %>  
+        </h4>  
+    <% }); %>
+    </ul>
+
+<% } else { %>
+    <p>No topic available right now! </p>
+<% } %>
+
+
+
+
+<% if (it.admin){ %>
+    <h2>Add a topic!</h2>
+
+    <% if (it.validationErrors) { %>
+    <h4> Validation Errors: </h4>
+    <ul>
+        <% Object.keys(it.validationErrors).forEach((attribute) => { %>
+            <% Object.values(it.validationErrors[attribute]).forEach((err) => { %>
+                <p>&#x2022; <%= err %><p>
+            <% }); %>
+        <% }); %>
+    </ul>
+    <% } %>
+
+    <form method="POST" action="/topics">
+    Name:<br/>
+    <input type="text" name="name" value= "<%= it.nameValue %>" /><br/>
+    <input type="submit" value="Add this topic"/>
+    </form>
+<% } %>
+
